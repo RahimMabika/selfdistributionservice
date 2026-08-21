@@ -1,6 +1,5 @@
-// JS Logic for SDS Website
 document.addEventListener("DOMContentLoaded", () => {
-    // Lucide Icons Initialization
+    // Lucide Icon initation 
     if (window.lucide) {
         lucide.createIcons();
     }
@@ -10,8 +9,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const mobileMenu = document.getElementById('mobile-menu');
 
     if (menuBtn && mobileMenu) {
+        // Ouvrir / Fermer au clic sur le bouton burger
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // Fermer automatiquement le menu dès qu'on clique sur un lien de navigation
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
         });
     }
 
@@ -28,3 +35,4 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(element);
     });
 });
+
